@@ -62,7 +62,8 @@ let getBettorsForPlayer = (player) => {
 }
 
 let botHelp = (ctx) => {
-    ctx.reply(`Welcome! The bot helps to calculate coefficients and amounts for friendly game betting. 
+    ctx.reply(`Welcome! 
+	The bot helps to calculate coefficients and amounts for friendly game betting. 
     Players and bettors should persist in telegram group. The bot works with telegram usernames.
     To start new game, please type /game and specify players by telegram usernames through space. Example: /game @stalin @trump.
     After, you can bet for the player, added to the game. Example: /bet @stalin 10.
