@@ -62,7 +62,7 @@ let getBettorsForPlayer = (player) => {
 }
 
 let botHelp = (ctx) => {
-    ctx.reply(`Welcome! The bot helps to calculate coefficients and ammounts for friendly game betting. 
+    ctx.reply(`Welcome! The bot helps to calculate coefficients and amounts for friendly game betting. 
     Players and bettors should persist in telegram group. The bot works with telegram usernames.
     To start new game, please type /game and specify players by telegram usernames through space. Example: /game @stalin @trump.
     After, you can bet for the player, added to the game. Example: /bet @stalin 10.
@@ -98,6 +98,7 @@ let initBet = (ctx) => {
 
     messageBet = ctx.update.message.text.replace(/\s{2,}/g, ' ').split(' '); // remove commas and spaces
     betAmount = Number(messageBet[2]);
+
     if (!betAmount || isNaN(betAmount)) {
         ctx.reply('Please specify correct amount')
         return null
@@ -128,6 +129,7 @@ let initBet = (ctx) => {
     }
 
     if(playerName === player1.name){
+        //bettor.betToPlayer(betAmount, player1);
         if (bettor.betToPlayer(betAmount, player1) == false){
             ctx.reply(`Incorrect amount`);
             return null;
@@ -135,6 +137,7 @@ let initBet = (ctx) => {
         bettor.chosenPlayer = playerName
     }
     else if (playerName === player2.name) {
+        //bettor.betToPlayer(betAmount, player2);
         if (bettor.betToPlayer(betAmount, player2) === false){
             ctx.reply(`Incorrect amount`);
             return null;
@@ -161,6 +164,10 @@ let getBetsInfo = (ctx) => {
         ${getBettorsForPlayer(player1)}
         ${getBettorsForPlayer(player2)}
         `)
+    }
+    else{
+        ctx.reply(`Both players must get bets first`)
+        return null
     }
 }
 
