@@ -9,4 +9,6 @@ The bot helps to calculate coefficients and ammounts for friendly game betting.
     
 Dependencies: telegraf  https://telegraf.js.org/
 Installation: npm install telegraf
-    
+
+It is required to compile .ts file to .js. Install TypeScript and use "tsc .\FriendlyBetBot_NH.ts" to compile
+Then, run .js file with node
